@@ -1,0 +1,11 @@
+﻿version: 1.0.{build}
+nuget:
+  project_feed: true
+before_build:
+- cmd: nuget restore
+build:
+  verbosity: minimal
+- provider: Slack
+auth_token:
+secure: xoxp-303075142484-303942772534-303949506694-a1f9361ef1f516c4f378ebf61bb0d2dd
+channel: '#appveyor'
