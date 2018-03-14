@@ -1,6 +1,6 @@
 node {
 	stage 'Checkout'
-		checkout scm
+		checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '04c67068-74e0-4657-8f31-9701ad7597be', url: 'https://github.com/GentlemenBastards/net_fw_test.git']]])
 
 	stage 'Build'
 		bat 'nuget restore SolutionName.sln'
